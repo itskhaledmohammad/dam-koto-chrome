@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Dam koto?",
+    "description": "This extension adds a price tag in native currency selected beside the current price tags of items in ecommerce sites like Amazon, Ebay, etc.",
+    "version": "1.0",
+    "content_scripts": [  
+    { 
+        "run_at" :"document_start",
+        "matches": ["https://www.amazon.com/*"],
+        "js": ["jquery-3.1.0.min.js","background.js"]
+    } ],
+        //"run_at" tells when to load the javascript,
+        //"matches" tells the URL to match to inject the code which I'm using Gmail here,
+        //"js" tells all .js files to inject,
+        //"CSS" tells about all included CSS files for injection.
+
+    "web_accessible_resources":["img/*.png"]
+}
