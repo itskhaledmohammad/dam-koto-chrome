@@ -1,5 +1,6 @@
 // Global Variable.
 var currUrl = "about_blank";
+var numberPattern = /[+-]?\d+(\.\d+)?/g;
 
 /* This functions converts the given 
  * currency to required currency. 
@@ -22,11 +23,51 @@ $(document).ready(function() {
     
     // Goes through every element with the matching name.
     $(".a-color-price").each(function() {
-        $(this).html($(this).html().replace(/&nbsp;/gi,'')); // Replacing the current trailing spaces.
-        var current =  $(this).html(); // Saving the current text
-        var currency = current;
-        var convertedRate = Number(currency.replace(/[^0-9\.]+/g,"")).toFixed(1) * getRate(); // Calculating the coversion.
-        $(this).text(current + "(TK. " + convertedRate + ")");  // Adds coverted currency beside the current.
+        
+        // Initialization.
+        var convertedRate = 0.00;
+        
+        // Replacing the current trailing spaces.
+        $(this).html($(this).html().replace(/&nbsp;/gi,'')); 
+        
+        // Saving the current text
+        var current =  $(this).html(); 
+        
+        // Looking for floating numbers.
+        var numbers = current.match(numberPattern);
+        
+        // If matches were found.
+        if(numbers != null){
+            
+            // Going through each matches.
+            for(i = 0; i < numbers.length - 1; i++){
+                
+                // Converting the currency.
+                var currency = current;
+                convertedRate = (parseFloat(numbers[i]).toFixed(1) * getRate()).toFixed(1); 
+                
+                // Updating the price tag with added converted currency.
+                $(this).html(current + "(TK. " + convertedRate + " - "); 
+                
+                // Saving the current text.
+                var current =  $(this).html(); 
+            }
+            
+            // If the price tag is range. ie. $X - $Z
+            if(numbers.length > 1){
+                
+                // Converting the currency and updating the pricetag.
+                convertedRate = (parseFloat(numbers[numbers.length - 1]) * getRate()).toFixed(1);
+                $(this).html(current + "TK. " + convertedRate + ")");
+            }
+            // If the price tag is not a range. ie. $X
+            else{
+                
+                // Converting the currency and updating the pricetag.
+                convertedRate = (parseFloat(numbers[0]).toFixed(1) * getRate()).toFixed(1);
+                $(this).html(current + "(TK. " + convertedRate + ")");
+            }
+        }
     });
 });
 
