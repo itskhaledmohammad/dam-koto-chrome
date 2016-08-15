@@ -2,16 +2,15 @@
     "manifest_version": 2,
     "name": "Dam koto?",
     "description": "This extension adds a price tag in native currency selected beside the current price tags of items in ecommerce sites like Amazon, Ebay, etc.",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "permissions": ["tabs", "activeTab"],
+    "icons": { "16":  "main_icon_16.png",
+               "48":  "main_icon_48.png",
+               "128": "main_icon_128.png" },
     "content_scripts": [  
     { 
         "run_at" :"document_end",
         "matches": ["https://www.amazon.com/*", "https://www.amazon.co.uk/*","https://www.amazon.ca/*"],
         "js": ["jquery-3.1.0.min.js","content.js"]
     } ]
-        //"run_at" tells when to load the javascript,
-        //"matches" tells the URL to match to inject the code which I'm using Gmail here,
-        //"js" tells all .js files to inject,
-        //"CSS" tells about all included CSS files for injection.
 }
