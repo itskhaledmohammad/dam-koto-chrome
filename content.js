@@ -12,6 +12,9 @@ function getRate() {
     else if(currUrl.includes(".co.uk")){
         return 101.23;
     }
+    else if(currUrl.includes(".ca")){
+        return 60.50;
+    }
 
 }
 

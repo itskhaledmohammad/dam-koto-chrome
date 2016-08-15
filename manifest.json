@@ -2,12 +2,12 @@
     "manifest_version": 2,
     "name": "Dam koto?",
     "description": "This extension adds a price tag in native currency selected beside the current price tags of items in ecommerce sites like Amazon, Ebay, etc.",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "permissions": ["tabs", "activeTab"],
     "content_scripts": [  
     { 
         "run_at" :"document_end",
-        "matches": ["https://www.amazon.com/*", "https://www.amazon.co.uk/*"],
+        "matches": ["https://www.amazon.com/*", "https://www.amazon.co.uk/*","https://www.amazon.ca/*"],
         "js": ["jquery-3.1.0.min.js","content.js"]
     } ]
         //"run_at" tells when to load the javascript,
