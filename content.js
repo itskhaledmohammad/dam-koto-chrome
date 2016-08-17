@@ -44,30 +44,36 @@ function currencyConverter(curr_from,curr_to)
  * currency to required currency. 
  */
 function getRate() {
-
+    
+    // Initialization.
+    var conv_rate = 0.0;
+    
     if(currUrl.includes(".com")){
-        curr_from = "USD";                           // Setting the currency to be converted to American Dollar.
-        rate = currencyConverter(curr_from,curr_to); // Cov the currency rate.
-        return rate;                                 // Returning the rate.
+        curr_from = "USD";                                // Setting the currency to be converted to American Dollar.
+        conv_rate = currencyConverter(curr_from,curr_to); // Cov the currency rate.
+        return conv_rate;                                 // Returning the rate.
     }
     else if(currUrl.includes(".co.uk")){
-        curr_from = "GBP";                           // Setting the currency to be converted to British Pounds.
-        rate = currencyConverter(curr_from,curr_to); // Getting the currency rate.
-        return rate;                                 // Returning the rate.
+        curr_from = "GBP";                                // Setting the currency to be converted to British Pounds.
+        conv_rate = currencyConverter(curr_from,curr_to); // Getting the currency rate.
+        return conv_rate;                                 // Returning the rate.
     }
     else if(currUrl.includes(".ca")){
-        curr_from = "CAD";                           // Setting the currency to be converted to Canadian Dollar.
-        rate = currencyConverter(curr_from,curr_to); // Getting the currency rate.
-        return rate;                                 // Returning the rate.
+        curr_from = "CAD";                                // Setting the currency to be converted to Canadian Dollar.
+        conv_rate = currencyConverter(curr_from,curr_to); // Getting the currency rate.
+        return conv_rate;                                 // Returning the rate.
     }
 
 }
 
+// Gets the current url.
+currUrl = window.location.href;
+
+// Getting the converted currency rate.
+rate = getRate();
+
 // Checks if the document is ready.
 $(document).ready(function() {
-    
-    // Gets the current url.
-    currUrl = window.location.href;
     
     // Goes through every element with the matching name.
     $(".a-color-price").each(function() {
@@ -82,7 +88,8 @@ $(document).ready(function() {
         var current =  $(this).html(); 
         
         // Looking for floating numbers.
-        var numbers = current.match(numberPattern);
+        var curr_text = $(this).text();
+        var numbers = (curr_text).match(numberPattern);
         
         // If matches were found.
         if(numbers != null){
@@ -92,7 +99,7 @@ $(document).ready(function() {
                 
                 // Converting the currency.
                 var currency = current;
-                convertedRate = (parseFloat(numbers[i]).toFixed(1) * getRate()).toFixed(1); 
+                convertedRate = (parseFloat(numbers[i]).toFixed(1) * rate).toFixed(1); 
                 
                 // Updating the price tag with added converted currency.
                 $(this).html(current + "(TK. " + convertedRate + " - "); 
@@ -103,20 +110,18 @@ $(document).ready(function() {
             
             // If the price tag is range. ie. $X - $Z
             if(numbers.length > 1){
-                
+                console.log(current);
                 // Converting the currency and updating the pricetag.
-                convertedRate = (parseFloat(numbers[numbers.length - 1]) * getRate()).toFixed(1);
+                convertedRate = (parseFloat(numbers[numbers.length - 1]) * rate).toFixed(1);
                 $(this).html(current + "TK. " + convertedRate + ")");
             }
             // If the price tag is not a range. ie. $X
             else{
                 
                 // Converting the currency and updating the pricetag.
-                convertedRate = (parseFloat(numbers[0]).toFixed(1) * getRate()).toFixed(1);
+                convertedRate = (parseFloat(numbers[0]).toFixed(1) * rate).toFixed(1);
                 $(this).html(current + "(TK. " + convertedRate + ")");
             }
         }
     });
 });
-
-
