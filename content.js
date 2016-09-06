@@ -1,3 +1,4 @@
+
 // Global Variable.
 var currUrl = "about_blank";
 var numberPattern = /[+-]?\d+(\.\d+)?/g;
@@ -94,22 +95,27 @@ $(document).ready(function() {
         // If matches were found.
         if(numbers != null){
 
-            // Going through each matches.
-            for(i = 0; i < numbers.length - 1; i++){
+            /*
+             * If the price tag is range. ie. $X - $Z
+             * It checks if the tag contains %. If it contains
+             * % then that means it is "You save" tag. So we only fetch
+             * the total saved.
+             */
+            if(numbers.length > 1 && (!curr_text.includes("%")) ){
 
-                // Converting the currency.
-                var currency = current;
-                convertedRate = (parseFloat(numbers[i]).toFixed(1) * rate).toFixed(1);
+                // Going through each matches.
+                for(i = 0; i < numbers.length - 1; i++){
 
-                // Updating the price tag with added converted currency.
-                $(this).html(current + "(TK. " + convertedRate + " - ");
+                    // Converting the currency.
+                    var currency = current;
+                    convertedRate = (parseFloat(numbers[i]).toFixed(1) * rate).toFixed(1);
 
-                // Saving the current text.
-                var current =  $(this).html();
-            }
+                    // Updating the price tag with added converted currency.
+                    $(this).html(current + "(TK. " + convertedRate + " - ");
 
-            // If the price tag is range. ie. $X - $Z
-            if(numbers.length > 1){
+                    // Saving the current text.
+                    var current =  $(this).html();
+                }
 
                 // Converting the currency and updating the pricetag.
                 convertedRate = (parseFloat(numbers[numbers.length - 1]) * rate).toFixed(1);
