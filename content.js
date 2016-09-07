@@ -1,5 +1,5 @@
 
-// Global Variable.
+// Global Variables.
 var currUrl = "about_blank";
 var numberPattern = /[+-]?\d+(\.\d+)?/g;
 var curr_from = "USD";
@@ -8,6 +8,7 @@ var curr_symbol = "KL.";
 var rate = 0.0;
 var symbolArr = {BDT: '৳', AED: 'AED.', PKR: 'Rs.', JOD: 'JOD.', SYP: '£S.', BTN: 'Nu.'};
 
+// Getting the selected item from the country list.
 chrome.storage.sync.get("selectedCurr", function(items) {
      curr_to = items['selectedCurr'];
      start();

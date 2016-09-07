@@ -4,6 +4,17 @@ var currUrl, selCur;
 // Waiting for the DOM to be loaded.
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Setting the selected item from the list.
+    chrome.storage.sync.get("selectedCurr", function(items) {
+        document.getElementById('selection').value = items['selectedCurr'];
+        
+        // Changing the flag to the country's flag that is selected.
+        document.getElementById('flagsel').src = "flags/" + document.getElementById('selection').value + ".png";
+     });
+
+
+
+
     // Geting all the anchor tags of the page.
     var links = document.getElementsByTagName("a");
 
@@ -24,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('selection').onchange = function(){
 
       // Changing the flag to the country's flag that is selected.
-      imgel = document.getElementById('flagsel');
+      var imgel = document.getElementById('flagsel');
       imgel.src = "flags/" + this.value + ".png";
     }
 
