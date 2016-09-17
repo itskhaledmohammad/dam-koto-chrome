@@ -1,0 +1,19 @@
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v15-latin-regular.woff2') format('woff2'),
+       url('../fonts/roboto-v15-latin-regular.woff') format('woff')
+}
+
+/* indie-flower-regular - latin */
+@font-face {
+  font-family: 'Indie Flower';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Indie Flower'), local('IndieFlower'),
+       url('../fonts/indie-flower-v8-latin-regular.woff2') format('woff2'),
+       url('../fonts/indie-flower-v8-latin-regular.woff') format('woff')
+}
