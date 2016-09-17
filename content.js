@@ -51,8 +51,6 @@ function start(){
         return http_response_json.query.results.rate.Rate;
     }
 
-
-
     /*
      * This functions converts the given
      * currency to required currency.

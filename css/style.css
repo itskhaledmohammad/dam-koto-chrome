@@ -1,18 +1,20 @@
+*{
+    padding: 0.17em;
+}
 body{
   background: linear-gradient(135deg, #581845 0%,#900c3f 100%);
 }
 #container{
-  height: 500px;
-  width: 400px;
+  height: 46em;
+  width: 30em;
   text-align: center;
   color:  #ffffff;
-  font-family: 'Lato', sans-serif;
-  line-height: 10px;
-
+  font-family: 'Roboto', sans-serif;
+  line-height: 0.2em;
 }
 #logo{
-  height: 120px;
-  width: 120px;
+  height: 11em;
+  width: 11em;
 }
 #devBy{
   font-size: 1.7em;
@@ -26,26 +28,26 @@ body{
 .social-media a{
   font-size: 3em;
   color: white;
-  margin: 7px;
+  margin: 0.25em;
 }
 #settings-saved{
     color: white;
     font-size: 1.5em;
     visibility: hidden;
-    margin: 12px;
+    margin: 1.2em;
 }
 #save{
   background-color: #FF8633;
   border: none;
   color: white;
-  padding: 10px 28px;
+  padding: 0.5em 2em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 1.4em;
+  margin: 0.2em;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.5em;
 }
 #save:hover{
   background-color: #F89754;
@@ -54,28 +56,31 @@ body{
   background-color: white;
   border: block;
   border-color: #F7802F;
-  border-radius: 4px;
-  border-width: 2px;
+  border-radius: 0.5em;
+  border-width: 0.1em;
   color: black;
-  padding: 10px 28px;
+  padding: 0.5em 1em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  margin: 4px;
+  font-size: 1.7em;
+  margin: 0.5em;
   cursor: pointer;
 }
 .social-media a:hover{
   color: #FF8633;
 }
 .instruction-line{
-    font-size: 1.1em;
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
 #flagsel{
-  width: 46px;
-  height: 30px;
-  margin: 4px;
+  width: 3.5em;
+  height: 2.5em;
 }
 h1{
   font-size: 3em;
+}
+h2{
+    font-size: 1.8em;
 }
