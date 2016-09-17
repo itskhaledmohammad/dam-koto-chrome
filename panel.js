@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
             settingStatus = document.getElementById('settings-saved');
             settingStatus.style.visibility = "visible";
 
-            document.getElementById('settings-saved')
             // Saving the value.
             chrome.storage.sync.clear(function(){});
             chrome.storage.sync.set({ "selectedCurr" : selCur }, function() {

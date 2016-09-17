@@ -1,4 +1,3 @@
-
 // Global Variables.
 var currUrl = "about_blank";
 var numberPattern = /[+-]?\d+(\.\d+)?/g;
@@ -38,6 +37,7 @@ function start(){
      */
     function currencyConverter(curr_from,curr_to)
     {
+
         // Initialization.
         var yql_base_url = "https://query.yahooapis.com/v1/public/yql";
         var yql_query = 'select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20("'+ curr_from + curr_to +'")';
@@ -49,6 +49,7 @@ function start(){
         // Parsing the json to get the currency rate.
         var http_response_json = JSON.parse(http_response);
         return http_response_json.query.results.rate.Rate;
+
     }
 
     /*

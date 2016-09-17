@@ -2,56 +2,39 @@
     padding: 0.17em;
 }
 body{
-  background: linear-gradient(135deg, #581845 0%,#900c3f 100%);
+    background: linear-gradient(135deg, #581845 0%,#900c3f 100%);
 }
+h1{
+    font-size: 3em;
+}
+h2{
+    font-size: 1.8em;
+}
+
 #container{
-  height: 46em;
-  width: 30em;
-  text-align: center;
-  color:  #ffffff;
-  font-family: 'Roboto', sans-serif;
-  line-height: 0.2em;
+    height: 46em;
+    width: 30em;
+    text-align: center;
+    color:  #ffffff;
+    font-family: 'Roboto', sans-serif;
+    line-height: 0.2em;
 }
+
 #logo{
   height: 11em;
   width: 11em;
 }
-#devBy{
-  font-size: 1.7em;
-  text-align: center;;
-  font-family: 'Indie Flower', cursive;
+
+.instruction-line{
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
-#heart{
-  color: red;
-  font-size: 1.5em;
+
+#flagsel{
+  width: 3.5em;
+  height: 2.5em;
 }
-.social-media a{
-  font-size: 3em;
-  color: white;
-  margin: 0.25em;
-}
-#settings-saved{
-    color: white;
-    font-size: 1.5em;
-    visibility: hidden;
-    margin: 1.2em;
-}
-#save{
-  background-color: #FF8633;
-  border: none;
-  color: white;
-  padding: 0.5em 2em;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.4em;
-  margin: 0.2em;
-  cursor: pointer;
-  border-radius: 0.5em;
-}
-#save:hover{
-  background-color: #F89754;
-}
+
 #selection{
   background-color: white;
   border: block;
@@ -67,20 +50,49 @@ body{
   margin: 0.5em;
   cursor: pointer;
 }
+
+#save{
+  background-color: #FF8633;
+  border: none;
+  color: white;
+  padding: 0.5em 2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4em;
+  margin: 0.2em;
+  cursor: pointer;
+  border-radius: 0.5em;
+}
+
+#save:hover{
+  background-color: #F89754;
+}
+
+#settings-saved{
+    color: white;
+    font-size: 1.3em;
+    visibility: hidden;
+    margin: 1.5em;
+}
+
+#devBy{
+  font-size: 1.7em;
+  text-align: center;;
+  font-family: 'Indie Flower', cursive;
+}
+
+#heart{
+  color: red;
+  font-size: 1.5em;
+}
+
+.social-media a{
+  font-size: 3em;
+  color: white;
+  margin: 0.25em;
+}
+
 .social-media a:hover{
   color: #FF8633;
-}
-.instruction-line{
-    font-size: 1.2em;
-    line-height: 1.5em;
-}
-#flagsel{
-  width: 3.5em;
-  height: 2.5em;
-}
-h1{
-  font-size: 3em;
-}
-h2{
-    font-size: 1.8em;
 }
