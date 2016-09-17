@@ -2,7 +2,7 @@ body{
   background: linear-gradient(135deg, #581845 0%,#900c3f 100%);
 }
 #container{
-  height: auto;
+  height: 500px;
   width: 400px;
   text-align: center;
   color:  #ffffff;
@@ -28,6 +28,12 @@ body{
   color: white;
   margin: 7px;
 }
+#settings-saved{
+    color: white;
+    font-size: 1.5em;
+    visibility: hidden;
+    margin: 12px;
+}
 #save{
   background-color: #FF8633;
   border: none;
@@ -41,13 +47,13 @@ body{
   cursor: pointer;
   border-radius: 4px;
 }
-.save:hover{
+#save:hover{
   background-color: #F89754;
 }
 #selection{
   background-color: white;
   border: block;
-  border-color: F7802F;
+  border-color: #F7802F;
   border-radius: 4px;
   border-width: 2px;
   color: black;
@@ -56,15 +62,19 @@ body{
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
-  margin: 4px 2px;
+  margin: 4px;
   cursor: pointer;
 }
 .social-media a:hover{
   color: #FF8633;
 }
+.instruction-line{
+    font-size: 1.1em;
+}
 #flagsel{
   width: 46px;
   height: 30px;
+  margin: 4px;
 }
 h1{
   font-size: 3em;
