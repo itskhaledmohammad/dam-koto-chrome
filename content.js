@@ -3,9 +3,9 @@ var currUrl = "about_blank";
 var numberPattern = /[+-]?\d+(\.\d+)?/g;
 var curr_from = "USD";
 var curr_to = "BDT";
-var curr_symbol = "KL.";
+var curr_symbol = "BDT.";
 var rate = 0.0;
-var symbolArr = {BDT: '৳', AED: 'AED.', PKR: 'Rs.', JOD: 'JOD.', SYP: '£S.', BTN: 'Nu.'};
+var symbolArr = {BDT: 'BDT.', AED: 'AED.', PKR: 'Rs.', JOD: 'JOD.', SYP: '£S.', BTN: 'Nu.'};
 
 // Getting the selected item from the country list.
 chrome.storage.sync.get("selectedCurr", function(items) {

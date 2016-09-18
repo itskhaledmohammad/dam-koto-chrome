@@ -1,19 +1,20 @@
 *{
-    padding: 0.17em;
+    padding: 0.08em;
 }
 body{
     background: linear-gradient(135deg, #581845 0%,#900c3f 100%);
 }
 h1{
-    font-size: 3em;
+    font-size: 2.8em;
+    line-height: 0.12em;
 }
 h2{
     font-size: 1.8em;
 }
 
 #container{
-    height: 46em;
-    width: 30em;
+    height: 48em;
+    width: 35em;
     text-align: center;
     color:  #ffffff;
     font-family: 'Roboto', sans-serif;
@@ -21,8 +22,8 @@ h2{
 }
 
 #logo{
-  height: 11em;
-  width: 11em;
+  height: 10em;
+  width: 10em;
 }
 
 .instruction-line{
@@ -32,7 +33,7 @@ h2{
 
 #flagsel{
   width: 3.5em;
-  height: 2.5em;
+  height: 2.3em;
 }
 
 #selection{
@@ -81,7 +82,18 @@ h2{
   text-align: center;;
   font-family: 'Indie Flower', cursive;
 }
-
+#opensource{
+  font-size: 1.5em;
+  text-align: center;;
+  font-family: 'Indie Flower', cursive;
+}
+#opensource a{
+    font-size: 1.2em;
+    color: inherit;
+}
+#opensource a:hover{
+  color: #FF8633;
+}
 #heart{
   color: red;
   font-size: 1.5em;
