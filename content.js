@@ -129,7 +129,7 @@ function start(){
                         convertedRate = (parseFloat(numbers[i]).toFixed(1) * rate).toFixed(1);
 
                         // Updating the price tag with added converted currency.
-                        $(this).html(current + "(" + curr_symbol + " " + convertedRate + " - ");
+                        $(this).html(current + " (" + curr_symbol + " " + convertedRate + " - ");
 
                         // Saving the current text.
                         var current =  $(this).html();
@@ -144,7 +144,7 @@ function start(){
 
                     // Converting the currency and updating the pricetag.
                     convertedRate = (parseFloat(numbers[0]).toFixed(1) * rate).toFixed(1);
-                    $(this).html(current + "(" + curr_symbol +  " " + convertedRate + ")");
+                    $(this).html(current + " (" + curr_symbol +  " " + convertedRate + ")");
                 }
             }
         });
