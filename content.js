@@ -100,6 +100,9 @@ function start(){
             // Replacing the current trailing spaces.
             $(this).html($(this).html().replace(/&nbsp;/gi,''));
 
+            // Removing the commas.
+            $(this).html($(this).html().replace(/,/g, ""));
+
             // Saving the current text
             var current =  $(this).html();
 
