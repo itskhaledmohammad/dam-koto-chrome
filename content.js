@@ -79,6 +79,17 @@ function start(){
 
     }
 
+    /*
+     *  This functions turns negative value to
+     *  positive value.
+     */
+    function NegativeToPositive(num){
+        if(num <= -1){
+            return (num * -1);
+        }
+        return num;
+    }
+
     // Gets the current url.
     currUrl = window.location.href;
 
@@ -91,8 +102,46 @@ function start(){
     // Checks if the document is ready.
     $(document).ready(function() {
 
+        // Setting our selector.
+        var ourSelector = "";
+
+        // For Amazon.*
+        if(currUrl.includes("amazon")){
+            ourSelector = ".a-color-price";
+        }
+
+        // For AliExpress.com
+        else if(currUrl.includes("aliexpress")){
+            if(currUrl.includes("/item/")){
+                ourSelector = ".p-price, .total-price-show";
+            }
+            else if(currUrl.includes("/product/")){
+                ourSelector = ".p-price, .total-price-show";
+            }
+            else{
+                ourSelector = ".value";
+            }
+        }
+
+        // For Alibaba.com
+        else if(currUrl.includes("alibaba")){
+
+            if(currUrl.includes("/product-detail/")){
+                ourSelector = ".ma-ref-price";
+            }
+            else if(currUrl.includes("/catalogs/")){
+                ourSelector = "b";
+            }
+            else if(currUrl.includes("/products/")){
+                ourSelector = ".promo-price";
+            }
+            else if(currUrl.includes("/trade/search")){
+                ourSelector = ".promo-price";
+            }
+        }
+
         // Goes through every element with the matching name.
-        $(".a-color-price").each(function() {
+        $(ourSelector).each(function() {
 
             // Initialization.
             var convertedRate = 0.00;
@@ -127,6 +176,7 @@ function start(){
                         // Converting the currency.
                         var currency = current;
                         convertedRate = (parseFloat(numbers[i]).toFixed(1) * rate).toFixed(1);
+                        convertedRate = NegativeToPositive(convertedRate);
 
                         // Updating the price tag with added converted currency.
                         $(this).html(current + " (" + curr_symbol + " " + convertedRate + " - ");
@@ -137,6 +187,7 @@ function start(){
 
                     // Converting the currency and updating the pricetag.
                     convertedRate = (parseFloat(numbers[numbers.length - 1]) * rate).toFixed(1);
+                    convertedRate = NegativeToPositive(convertedRate);
                     $(this).html(current + curr_symbol +  " " + convertedRate + ")");
                 }
                 // If the price tag is not a range. ie. $X
@@ -144,6 +195,7 @@ function start(){
 
                     // Converting the currency and updating the pricetag.
                     convertedRate = (parseFloat(numbers[0]).toFixed(1) * rate).toFixed(1);
+                    convertedRate = NegativeToPositive(convertedRate);
                     $(this).html(current + " (" + curr_symbol +  " " + convertedRate + ")");
                 }
             }
