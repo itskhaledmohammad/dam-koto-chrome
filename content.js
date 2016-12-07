@@ -107,7 +107,16 @@ function start(){
 
         // For Amazon.*
         if(currUrl.includes("amazon")){
-            ourSelector = ".a-color-price";
+            if(currUrl.includes(".com/s")){
+                // Dealing with the new amazon.com price tags.
+                var retailTag = document.querySelector(".sx-price-whole").textContent + "."
+                + document.querySelector(".sx-price-fractional").textContent;
+                
+
+            }
+            else{
+                ourSelector = ".a-color-price";
+            }
         }
 
         // For AliExpress.com

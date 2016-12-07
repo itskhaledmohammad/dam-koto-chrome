@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Dam koto?",
     "description": "This extension adds a price tag in native currency selected beside the current price tags of amazon's price tags.",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "permissions": ["tabs", "activeTab", "storage"],
     "browser_action": {
       "default_icon": {
