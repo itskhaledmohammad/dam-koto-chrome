@@ -108,11 +108,20 @@ function start(){
         // For Amazon.*
         if(currUrl.includes("amazon")){
             if(currUrl.includes(".com/s")){
-                // Dealing with the new amazon.com price tags.
-                var retailTag = document.querySelector(".sx-price-whole").textContent + "."
-                + document.querySelector(".sx-price-fractional").textContent;
                 
+                var tags = document.querySelectorAll(".sx-price");
+                for(i = 0; i < tags.length; ++i){
 
+                    // Change all the price tag and also add the dollar sign.
+                    var retailTag = "$" + tags[i].querySelector(".sx-price-whole").textContent + "."
+                    + tags[i].querySelector(".sx-price-fractional").textContent;
+
+                    tags[i].innerHTML = retailTag;
+                }
+
+
+                // Set the selector to .a-color-base.
+                ourSelector = ".sx-price";
             }
             else{
                 ourSelector = ".a-color-price";
