@@ -110,18 +110,31 @@ function start(){
             if(currUrl.includes(".com/s")){
 
                 var tags = document.querySelectorAll(".sx-price");
-                for(i = 0; i < tags.length; ++i){
+                if(tags.length > 0){
+                    for(i = 0; i < tags.length; ++i){
 
-                    // Change all the price tag and also add the dollar sign.
-                    var retailTag = "$" + tags[i].querySelector(".sx-price-whole").textContent + "."
-                    + tags[i].querySelector(".sx-price-fractional").textContent;
-
-                    tags[i].innerHTML = retailTag;
+                        // Change all the price tag and also add the dollar sign.
+                        if(tags[i].textContent.includes("-"))
+                        {
+                            var retailTag = "$" + tags[i].querySelectorAll(".sx-price-whole")[0].textContent + "."
+                            + tags[i].querySelectorAll(".sx-price-fractional")[0].textContent + " - " + "$"
+                            + tags[i].querySelectorAll(".sx-price-whole")[1].textContent + "."
+                            + tags[i].querySelectorAll(".sx-price-fractional")[1].textContent;
+                        }
+                        else{
+                            var retailTag = "$" + tags[i].querySelector(".sx-price-whole").textContent + "."
+                            + tags[i].querySelector(".sx-price-fractional").textContent;
+                        }
+                        tags[i].innerHTML = retailTag;
+                    }
+                    // Set the selector to .a-color-base.
+                    ourSelector = ".sx-price";
+                }
+                else{
+                    ourSelector = ".a-size-small";
                 }
 
 
-                // Set the selector to .a-color-base.
-                ourSelector = ".sx-price";
             }
             else{
                 ourSelector = ".a-color-price";
