@@ -100,7 +100,7 @@ function start(){
     curr_symbol = symbolArr[curr_to];
 
     // Checks if the document is ready.
-    $(document).ready(function() {
+    $(window).bind("load",function() {
 
         // Setting our selector.
         var ourSelector = "";
@@ -108,7 +108,7 @@ function start(){
         // For Amazon.*
         if(currUrl.includes("amazon")){
             if(currUrl.includes(".com/s")){
-                
+
                 var tags = document.querySelectorAll(".sx-price");
                 for(i = 0; i < tags.length; ++i){
 
@@ -150,11 +150,8 @@ function start(){
             else if(currUrl.includes("/catalogs/")){
                 ourSelector = "b";
             }
-            else if(currUrl.includes("/products/")){
-                ourSelector = ".promo-price";
-            }
-            else if(currUrl.includes("/trade/search")){
-                ourSelector = ".promo-price";
+            else if(currUrl.includes("/products/") || currUrl.includes("/trade/search")){
+                ourSelector = ".price b";
             }
         }
 
