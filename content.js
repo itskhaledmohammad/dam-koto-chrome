@@ -134,7 +134,10 @@ function start(){
                     ourSelector = ".a-size-small";
                 }
 
-
+            }
+            else if(currUrl.includes("nav_cs_gb"))
+            {
+                ourSelector = ".a-size-medium";
             }
             else{
                 ourSelector = ".a-color-price";
@@ -217,6 +220,9 @@ function start(){
                     convertedRate = (parseFloat(numbers[numbers.length - 1]) * rate).toFixed(1);
                     convertedRate = NegativeToPositive(convertedRate);
                     $(this).html(current + curr_symbol +  " " + convertedRate + ")");
+                }
+                else if(curr_text.includes("%")){
+                    // Do nothing.
                 }
                 // If the price tag is not a range. ie. $X
                 else{
